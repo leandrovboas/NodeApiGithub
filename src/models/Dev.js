@@ -1,6 +1,6 @@
-const { schema, model } = require('mongoose')
+const { Schema, model } = require('mongoose')
 
-const DevSchema = new schema({
+const DevSchema = new Schema({
     nome:{
         type: String,
         required: true,
@@ -14,6 +14,11 @@ const DevSchema = new schema({
         type: String,
         required: true,
     },
+    company: String,
+    repos: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Repos',
+    }],
 },{
     timestamps: true,
 })
